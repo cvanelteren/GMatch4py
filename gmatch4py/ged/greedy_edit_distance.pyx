@@ -21,7 +21,7 @@ cdef class GreedyEditDistance(GraphEditDistance):
 
     cdef list edit_costs(self, G, H):
         cdef np.ndarray cost_matrix=self.create_cost_matrix(G,H)
-        cdef np.ndarray cost_matrix_2=cost_matrix.copy().astype(np.double)
+        cdef np.ndarray cost_matrix_2=cost_matrix.copy().astype(np.float64)
         cdef list psi=[]
         for i in range(len(cost_matrix)):
             phi_i=np.argmin(cost_matrix_2[i])

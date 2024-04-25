@@ -112,9 +112,9 @@ cdef class Graph:
             self.nodes_degree_in=np.array(degree_in)
             self.nodes_degree_out=np.array(degree_out)
 
-            self.nodes_degree_weighted=np.array(degree_all_weighted).astype(np.double)
-            self.nodes_degree_in_weighted=np.array(degree_in_weighted).astype(np.double)
-            self.nodes_degree_out_weighted=np.array(degree_out_weighted).astype(np.double)
+            self.nodes_degree_weighted=np.array(degree_all_weighted).astype(np.float64)
+            self.nodes_degree_in_weighted=np.array(degree_in_weighted).astype(np.float64)
+            self.nodes_degree_out_weighted=np.array(degree_out_weighted).astype(np.float64)
 
 
             # EDGE INFO INIT
@@ -371,7 +371,7 @@ cdef class Graph:
 
     def __init_empty__(self):
         self.nodes_list,self.nodes_attr_list,self.nodes_hash,self.nodes_weight,self.attr_nodes=[],[],[],[],[]
-        self.nodes_degree,self.nodes_degree_in,self.nodes_degree_out,self.nodes_degree_weighted,self.nodes_degree_in_weighted,self.nodes_degree_out_weighted=np.array([],dtype=np.long),np.array([],dtype=np.long),np.array([],dtype=np.long),np.array([],dtype=np.double),np.array([],dtype=np.double),np.array([],dtype=np.double)
+        self.nodes_degree,self.nodes_degree_in,self.nodes_degree_out,self.nodes_degree_weighted,self.nodes_degree_in_weighted,self.nodes_degree_out_weighted=np.array([],dtype=np.int64),np.array([],dtype=np.int64),np.array([],dtype=np.int64),np.array([],dtype=np.float64),np.array([],dtype=np.float64),np.array([],dtype=np.float64)
         self.nodes_idx,self.degree_per_attr,self.degree_per_attr_weighted={},{},{}
         self.nodes_hash_set=set([])
         self.number_of_nodes = 0
@@ -385,5 +385,3 @@ cdef class Graph:
         self.edges_weight={}
         self.edges_hash_map={}
         self.attr_edges=[]
-
-    
